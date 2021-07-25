@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Hi, I am mega menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+.slick-prev:before, .slick-next:before{
+  color: #040000;
+}
+.slick-prev, .slick-next{
+  top: inherit !important;
+  background-color: transparent  !important;
+}
+.slick-next {
+    bottom: 0;
+    transform: rotate(
+90deg
+);
+}
+.slick-prev{
+    margin-top: -20px!important;
+    transform: rotate(90deg);
+}
+.swatches {
+    margin: 17px 0 80px
+}
+/*.swatch {
+    float: left;
+    margin-right: 40px
+}*/
+.swatch:nth-last-child(2) {
+    margin-right: 0
+}
+.swatch .header {
+    font-family: "montserratbold", sans-serif;
+    text-transform: uppercase
+}
+.swatch input {
+    display: none
+}
+.swatch .swatch-element {
+    float: left;
+    margin: 5px 8px 0 0;
+    position: relative
+}
+.swatch .color label {
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid;
+    cursor: pointer;
+    display: block;
+    height: 42px;
+    padding: 7px 0 0 7px;
+    width: 42px
+}
+.swatch .color label span {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: block;
+    height: 26px;
+    position: relative;
+    width: 26px
+}
+
+.swatch .plain label {
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    font-family: "montserratbold", sans-serif;
+    border: 1px solid #086fcf;
+    color: #086fcf;
+    cursor: pointer;
+    display: block;
+    height: 42px;
+    padding-top: 8px;
+    text-align: center;
+    width: 42px
+}
+.swatch .color input:checked+label span:after {
+    opacity: 1
+}
+.swatch input:not(:checked)+label {
+    border-color: #edeff2 !important
+}
+.swatch input:not(:checked)+label:hover {
+    border-color: #b5b6bd !important
+}
+.swatch .plain input:not(:checked)+label {
+    color: #16161a !important
+}
+.swatch .blue input:checked+label {
+    border-color: #086fcf !important
+}
+.swatch .yellow input:checked+label {
+    border-color: #f5c81f !important
+}
+.swatch .red input:checked+label {
+    border-color: #d9332e !important
+}
+.swatch .blue label span {
+    background-color: #086fcf !important
+}
+.swatch .yellow label span {
+    background-color: #f5c81f !important
+}
+.swatch .red label span {
+    background-color: #d9332e !important
+}
+.crossed-out {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0
+}
+.swatch .swatch-element .crossed-out {
+    display: none
+}
+.swatch .swatch-element.soldout .crossed-out {
+    display: block
+}
+.swatch .swatch-element.soldout label {
+    filter: alpha(opacity=60);
+    -khtml-opacity: 0.6;
+    -moz-opacity: 0.6;
+    opacity: 0.6
+}
+.swatch .tooltip_animate {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+    background-color: rgba(22, 22, 26, 0.93);
+    color: #fff;
+    bottom: 100%;
+    padding: 10px;
+    display: block;
+    position: absolute;
+    width: 100px;
+    left: -23px;
+    margin-bottom: 15px;
+    filter: alpha(opacity=0);
+    -khtml-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+    -o-transform: translateY(10px);
+    transform: translateY(10px);
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    z-index: 10000;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+.swatch .tooltip_animate:before {
+    bottom: -20px;
+    content: " ";
+    display: block;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 100%
+}
+.swatch .tooltip_animate:after {
+    border-left: solid transparent 10px;
+    border-right: solid transparent 10px;
+    border-top: solid rgba(22, 22, 26, 0.93) 10px;
+    bottom: -10px;
+    content: " ";
+    height: 0;
+    left: 50%;
+    margin-left: -13px;
+    position: absolute;
+    width: 0
+}
+.swatch .swatch-element:hover .tooltip_animate {
+    filter: alpha(opacity=100);
+    -khtml-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transform: translateY(0px)
+}
+.swatch.error {
+    background-color: #E8D2D2 !important;
+    color: #333 !important;
+    padding: 1em;
+    border-radius: 5px
+}
+.swatch.error p {
+    margin: 0.7em 0
+}
+.swatch.error p:first-child {
+    margin-top: 0
+}
+.swatch.error p:last-child {
+    margin-bottom: 0
+}
+.swatch.error code {
+    font-family: monospace
+}
+
+
+
+
+
+body {
+    background-color: #fff;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #000000;
+    padding-right: 0!important;
+}
+
+.container {
+    width: 100%;
+    max-width: 1230px;
+    margin: 0 auto;
+}
+
+
+img {
+    max-width: 100%;
+}
+
+
+ul, li{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+p {
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+}
+
+
+/*USE CSS for Slider*/
+
+.vehicle-detail-banner .car-slider-desc {
+    max-width: 180px;
+    margin: 0 auto;
+}
+.banner-slider .slider.slider-for {
+    max-width: 84%;
+    padding-left: 35px;
+}
+.banner-slider .slider.slider-nav {
+    max-width: 16%;
+}
+.banner-slider .slider.slider-for,
+.banner-slider .slider.slider-nav {
+    width: 100%;
+    float: left;
+}
+.banner-slider .slider.slider-nav {
+    height: 610px;
+    overflow: hidden;
+
+}
+.slider-banner-image {
+    height: 610px;
+}
+.banner-slider .slider.slider-nav {
+    padding: 20px 0 0;
+}
+.slider-nav .slick-slide.thumbnail-image .thumbImg{
+    max-width: 178px;
+    height: 110px;
+    margin: 0 auto;
+    border: 1px solid #EBEBEB;
+}
+.slider-banner-image img,
+.slider-nav .slick-slide.thumbnail-image .thumbImg img {
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+}
+.slick-vertical .slick-slide:active,
+.slick-vertical .slick-slide:focus,
+.slick-arrow:hover,
+.slick-arrow:focus {
+    border: 0;
+    outline: 0;
+}
+.slider-nav .slick-slide.slick-current.thumbnail-image .thumbImg {
+    border: 2px solid #196DB6;
+}
+.slider-nav .slick-slide.slick-current span {
+    color: #196DB6;
+}
+.slider-nav .slick-slide {
+    text-align: center;
+}
+.slider-nav .slick-slide span {
+    font-size: 14px;
+    display: block;
+    padding: 5px 0 15px;
+}
+.slick-arrow {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-size: 0;
+    height: 18px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+.slick-prev {
+   top: 0;
+}
+.slick-next {
+   bottom: 0;
+   background-color: #fff;
+}
+.slick-prev.slick-arrow {
+    background-image: url(../images/black-up-arrow.png);
+}
+.slick-next.slick-arrow {
+    background-image: url(../images/black-down-arrow.png);
+}
+/*End USE CSS for Slider*/
+
+@media screen and (max-width : 991px) {
+
+  .banner-slider .slider.slider-for,
+  .banner-slider .slider.slider-nav {
+      max-width: 100%;
+      float: none;
+  }
+  .banner-slider .slider.slider-for {
+    padding-right: 0;
+  }
+  .banner-slider .slider.slider-nav {
+    height: auto;
+  }
+  .slider-banner-image {
+      height: 500px;
+  } 
+  .slider.slider-nav.thumb-image {
+        padding: 10px 30px 0;
+  }
+  .slider-nav .slick-slide span {
+    padding: 5px 0;
+  }
+  .slick-arrow {
+    padding: 0;
+      width: 30px;
+      height: 30px;
+      top: 50%;
+      bottom: 0;
+      -webkit-transform: translateY(-50%) rotate(-90deg);
+      -moz-transform: translateY(-50%) rotate(-90deg);
+      -ms-transform: translateY(-50%) rotate(-90deg);
+      transform: translateY(-50%) rotate(-90deg);
+  }
+  .slick-prev {
+      left: 0;
+      right: unset;
+  }
+  .slick-next {
+      left: unset;
+      right: 0;
+      background-color: transparent;
+  }
+  .vehicle-detail-banner .car-slider-desc {
+      max-width: 340px;
+  }
+  .bid-tag {
+      padding: 10px 0 15px;
+  }
+  .slider.slider-nav.thumb-image {
+     white-space: nowrap;
+  }
+  .thumbnail-image.slick-slide {
+    padding: 0px 5px;
+    min-width: 75px;
+    display: inline-block;
+    float: none;
+  }
+}
+
+@media screen and (max-width : 767px) {
+  .slider-banner-image {
+      height: 400px;
+  }
+  .slider.slider-nav.thumb-image {
+      padding: 0px 20px 0;
+      margin: 10px 0px 0;
+  }
+  .slider-nav .slick-slide.thumbnail-image .thumbImg {
+    max-width: 140px;
+    height: 80px;
+  }
+  .slick-prev.slick-arrow {
+      background-position: center 10px;
+  }
+  .slick-next.slick-arrow {
+      background-position: center 10px, center;
+  }
+  .slider-nav .slick-slide span {
+      font-size: 12px;
+      white-space: normal;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .slider-banner-image {
+      height:340px;
+  }
+}
+
+@media screen and (max-width : 480px) {
+  .slider-banner-image {
+      height:280px;
+  }
+}
+
+
+  </style>
+  </head>
+  <body>
+   
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Vehicle Details</title>
+        <!-- Font Link -->
+       
+    </head>
+    <body class="wrapper">
+
+        <!-- User this HTML for Slider -->
+       
+
+
+         <section class="banner-section">
+            <div class="container">
+                <div class="vehicle-detail-banner banner-content clearfix">
+                    <div class="banner-slider">
+                      <div class="slider slider-nav thumb-image">
+                            <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1570942872213-1242607a35eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="slider-img">
+                                </div>
+                            </div>
+                            <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1570171278960-d6c2b316f3b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="slider-img">
+                                </div>
+                            </div>
+                            <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1564376130023-5360fbb7c91b?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80" alt="slider-img">
+                                </div>
+                            </div>
+                              <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1570942872213-1242607a35eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="slider-img">
+                                </div>
+                            </div>
+                            <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1570171278960-d6c2b316f3b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="slider-img">
+                                </div>
+                            </div>
+                            <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1564376130023-5360fbb7c91b?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80" alt="slider-img">
+                                </div>
+                            </div>
+                              <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1570942872213-1242607a35eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="slider-img">
+                                </div>
+                            </div>
+                            <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1570171278960-d6c2b316f3b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="slider-img">
+                                </div>
+                            </div>
+                            <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1564376130023-5360fbb7c91b?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80" alt="slider-img">
+                                </div>
+                            </div>
+                            <div class="thumbnail-image">
+                                <div class="thumbImg">
+                                    <img src="https://images.unsplash.com/photo-1570171278960-d6c2b316f3b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="slider-img">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="slider slider-for">
+                            <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1570942872213-1242607a35eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Car-Image">
+                            </div> 
+                            <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1570171278960-d6c2b316f3b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Car-Image">
+                            </div> 
+                            <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1564376130023-5360fbb7c91b?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80" alt="Car-Image">
+                            </div> 
+                             <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1570942872213-1242607a35eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Car-Image">
+                            </div> 
+                            <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1570171278960-d6c2b316f3b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Car-Image">
+                            </div> 
+                            <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1564376130023-5360fbb7c91b?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80" alt="Car-Image">
+                            </div> 
+                             <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1570942872213-1242607a35eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Car-Image">
+                            </div> 
+                            <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1570171278960-d6c2b316f3b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Car-Image">
+                            </div> 
+                            <div class="slider-banner-image">
+                                <img src="https://images.unsplash.com/photo-1564376130023-5360fbb7c91b?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80" alt="Car-Image">
+                            </div> 
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End User this HTML for Slider -->
+
+        
+    </body>
+</html>
+
+    </div>
+    <div class="col-md-6">
+      <div class=""single-details>
+            <div class="swatches">
+                <div class="swatch">
+                  <div class="header">Size</div>
+                  <div data-value="M" class="swatch-element plain m">
+                    <input id="swatch-0-m" type="radio" name="option-0" value="M" checked  />
+                    <label for="swatch-0-m">
+                      M
+                    </label>
+                  </div>
+                  <div data-value="L" class="swatch-element plain l">
+                    <input id="swatch-0-l" type="radio" name="option-0" value="L"  />
+                    <label for="swatch-0-l">
+                      L
+                    </label>
+                  </div>
+                  <div data-value="XL" class="swatch-element plain xl">
+                    <input id="swatch-0-xl" type="radio" name="option-0" value="XL"  />
+                    <label for="swatch-0-xl">
+                      XL
+                    </label>
+                  </div>
+                  <div data-value="XXL" class="swatch-element plain xxl">
+                    <input id="swatch-0-xxl" type="radio" name="option-0" value="XXL"  />
+                    <label for="swatch-0-xxl">
+                      XXL
+                    </label>
+                  </div>
+                </div>
+                </div>
+                 <div class="swatches">
+                <div class="swatch">
+                  <div class="header">Color</div>
+                  <div data-value="Blue" class="swatch-element color blue ">
+                    <div class="tooltip_animate">Blue</div>
+                    <input quickbeam="color" id="swatch-1-blue" type="radio" name="option-1" value="Blue" checked  />
+                    <label for="swatch-1-blue" style="border-color: blue;">
+                      <span style="background-color: blue;"></span>
+                    </label>
+                  </div>
+                  <div data-value="Red" class="swatch-element color red ">
+                    <div class="tooltip_animate">Red</div>
+                    <input quickbeam="color" id="swatch-1-red" type="radio" name="option-1" value="Red"  />
+                    <label for="swatch-1-red" style="border-color: red;">
+                      <span style="background-color: red;"></span>
+                    </label>
+                  </div>
+                  <div data-value="Yellow" class="swatch-element color yellow ">
+                    <div class="tooltip_animate">Yellow</div>
+                    <input quickbeam="color" id="swatch-1-yellow" type="radio" name="option-1" value="Yellow"  />
+                    <label for="swatch-1-yellow" style="border-color: yellow;">
+                      <span style="background-color: yellow;"></span>
+                    </label>
+                  </div>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+            
+
+         
+</section>
+
+<!-- Quickbeam cart end -->
+  </section>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+     <script type="text/javascript" src="assets/slick/slick.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      
+$('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    vertical:true,
+    asNavFor: '.slider-for',
+    dots: false,
+    focusOnSelect: true,
+    verticalSwiping:true,
+    responsive: [
+    {
+        breakpoint: 992,
+        settings: {
+          vertical: false,
+        }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        vertical: false,
+      }
+    },
+    {
+      breakpoint: 580,
+      settings: {
+        vertical: false,
+        slidesToShow: 3,
+      }
+    },
+    {
+      breakpoint: 380,
+      settings: {
+        vertical: false,
+        slidesToShow: 2,
+      }
+    }
+    ]
+});
+    </script>
+  </body>
+</html>
